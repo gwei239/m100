@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pplt.m100.mapper.ClientupdateMapper" >
+    <resultMap id="BaseResultMap" type="com.pplt.m100.entity.ClientupdateEntity">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="lastpacketversion" property="lastpacketversion" jdbcType="VARCHAR" />
+        <result column="updateconf" property="updateconf" jdbcType="VARCHAR" />
+        <result column="systemversion" property="systemversion" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id,lastpacketversion, updateconf,systemversion,name
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM clientupdate
+    </select>
+
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM clientupdate
+	   WHERE id = #{id}
+    </select>
+
+    <select id="getOneByVersion" parameterType="java.lang.String" resultMap="BaseResultMap" >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM clientupdate
+	   WHERE systemversion = #{systemversion}
+    </select>
+
+    
+</mapper>

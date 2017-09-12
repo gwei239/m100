@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"></meta>
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"></link>
+	<title>注册 - 卓望外发文件安全控制系统平台</title>
+	<link rel="stylesheet" th:href="@{/css/basic.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/page.css}"></link>
+	<script type="text/javascript" async="async" th:src="@{/js/adw.js}"></script>
+</head>
+<body>
+
+<div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1"> 
+	<img style="position:fixed;" th:src="@{/images/download/bg.jpg}" height="100%" width="100%"></img> 
+</div>
+
+<div class="page">
+  <div class="header"></div>
+
+  <div class="content bgc">
+  	<div class="register">
+	    <div class="xinlogo">
+	    	<img th:src="@{/images/download/logo.png}" width="378" height="63"></img> 
+	   	</div>
+        <div class="layout register-box form-register">
+          <div class="zhuce-left">         
+            <div class="zcleft-bt">用户账户已激活，请选择用户类型完善账户！</div>
+            <div class="zcleft-bta">
+              <p>仅供免费查看接收到的安全文件</p>
+              <p>&nbsp;</p>
+              <button name="user_info_submit" type="submit" id="user_info_submit" class="btn btn-primary btn-large" onClick="javascript:location='/downloadpacket.php'">接收者</button>
+            </div>
+            <div class="zcleft-btb">
+              <p>付费制作和查看安全文件</p>
+              <p>&nbsp;</p>
+              <button name="user_info_submit" type="submit" id="user_info_submit" class="btn btn-primary btn-large" onClick="javascript:location='/advanceduser.php'">制作者</button>
+            </div>              
+           </div>
+          
+	    	<div class="ad pull-right">
+	      		<img th:src="@{/images/download/logoright.jpg}"></img>
+	        </div>
+	        
+	       <div class="clearfix"></div>		        
+		</div>
+	</div>
+</div>
+</div>
+
+<script th:src="@{/webjars/jquery/2.0.3/jquery.min.js}"></script>
+<script th:src="@{/js/jquery.validate.js}"></script> 
+<script th:src="@{/js/validate.js}"></script> 
+<script th:src="@{/js/jquery.form.js}"></script> 
+<script th:src="@{/js/jquery.cookie.js}"></script> 
+<script th:src="@{/js/password_strength.js}"></script> 
+<script th:src="@{/js/doregister.js}"></script>
+<script th:src="@{/js/adv.js}"></script>
+
+</body>
+</html>

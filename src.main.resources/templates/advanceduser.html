@@ -1,0 +1,108 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"></meta>
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"></link>
+	<title>功能选择 - 紫色密防系统M100平台</title>
+	<link rel="stylesheet" th:href="@{/css/basic.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/page.css}"></link>
+	
+<style> 
+.black_overlay{ 
+   display: none;  
+   position: absolute;  
+   top: 0%;  
+   left: 0%;  
+   width: 100%;  
+   height: 100%;  
+   background-color: black;  
+   z-index:1001;  
+   -moz-opacity: 0.8;  
+   opacity:.80;  
+   filter: alpha(opacity=80);  
+}  
+.white_content {  
+  display: none; 
+  position: absolute;  
+  top: 25%;  
+  left: 25%;  
+  width: 40%;  
+  height: 20%;  
+  padding: 16px;  
+  border: 6px solid #d9c6dc;  
+  background-color: white;  
+  z-index:1002;  
+  overflow: auto;  
+ }  
+#payok {
+  color: #f9f9f9;
+  background-color: #69bcf7;
+  border-color: #69bcf7;
+  text-shadow: #69bcf7 0 1px 1px;
+  width: 230px;
+  height:40px;
+  line-height:40px;
+  margin-top: 60px;
+  margin-right:10px;
+  border:0;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1"> 
+	<img style="position:fixed;" th:src="@{/images/download/bg.jpg}" height="100%" width="100%"></img> 
+</div>
+
+<div class="page">
+  <div class="header"></div>
+  <div class="content bgc">
+  	<div class="register">        
+    	<input type="hidden" id="ordid" name="ordid" th:attr="value=${orderid}"></input> 
+        <input type="hidden" id="userid" name="userid" th:attr="value=${userid}"></input> 
+		<div class="xinlogo">
+			<img th:src="@{/images/download/logo2.png}" width="378" height="63"></img>
+		</div>
+        <div class="layout register-box form-register">         
+          <div class="zhuce-left">           
+            <div class="zcleft-bt">高级客户功能选择</div>
+            <div class="control-group">
+	            <div class="advanced"><br></br><br></br>
+	              <p><strong>购买时效：
+	                 	<label for="year"></label>
+	                		<select name="time" id="time" onChange="javascript: bootproto_change();">
+	                 			 <option value="1">一年</option>
+	                 			 <option value="3">三年</option>
+	                  			 <option value="5">五年</option>
+	                		</select>
+	              	 </strong><br></br><br></br>
+	              费用：8元/年，总计：<span id="castcount">8</span>元
+	              </p>
+	             </div>
+             	 <br></br><br></br>
+	             <div class="control-group">
+	                <button name="user_info_submit" type="button" id="user_info_submit" class="btn btn-primary btn-large" onclick="pay()">确 认 支 付</button>
+	             </div>
+             </div>             
+           </div>           
+           <div class="ad pull-right">
+	        	<img th:src="@{/images/download/logoright.jpg}"></img>
+           </div>
+		   <div class="clearfix"></div>		        
+       </div>
+	</div>
+  </div>
+</div>
+ 
+<div id="light" class="white_content" style="text-align:center">
+  <button name="payok" type="button" id="payok" onclick="payok();"> 支 付 成 功</button>
+  <button name="payok" type="button" id="payok"  onclick="payfailed();"> 支 付 失败</button>
+</div>
+<div id="fade" class="black_overlay"></div>
+
+<script th:src="@{/js/advanceduser.js}"></script>
+</body>
+</html>

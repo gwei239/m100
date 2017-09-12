@@ -1,0 +1,6 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<input type="hidden" id="url" th:attr="value=${payUrl}"></input>
+<script> 
+	location.href = document.getElementById('url').value;  
+</script>
+</html>

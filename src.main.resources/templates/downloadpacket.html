@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"></meta>
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"></link>
+	<title>支付成功 - 卓望密防系统M100平台</title>
+	<link rel="stylesheet" th:href="@{/css/basic.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/page.css}"></link>
+	<script type="text/javascript" async="async" th:src="@{/js/adw.js}"></script>
+</head>
+
+<body onLoad="MM_preloadImages('images/download/buyan_on.jpg')">
+	<div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1"> 
+		<img style="position:fixed" th:src="@{/images/download/bg.jpg}" height="100%" width="100%"></img> 
+	</div>
+
+<div class="page">
+	<div class="header"></div>
+	<div class="content bgc">
+    	<div class="register">
+		    <div class="xinlogo">
+		    	<img th:src="@{/images/download/logo4.png}" width="378" height="63"></img>
+		    </div>
+            <div class="layout register-box form-register">
+            	<div class="buy-left">
+            		<div th:switch="${statue}">
+	            		<div th:case="1">
+			            	<div class="buyleft-bt">恭喜您，您已成功注册成为本系统用户！</div>
+			                <div class="buyleft-zi">
+                				<!--<p>您已成功支付：<font color="#FF6600"><strong><?echo $paymoney;?></strong></font> 元　　订单号：<?echo   $out_trade_no;?></p>-->
+			                	<p>&nbsp;</p>
+			                	<p>功能提示：能够查看收取到的安全文件和制作安全文件。<br></br>
+			                	  到期时间：<font th:text="${endtime}"></font></p>
+		                	</div>
+	                	</div>
+	                	<div th:case="0">
+			            	<div class="buyleft-bt">恭喜您，您已成功注册成为本系统用户！</div>
+			                <div class="buyleft-zi">
+				                <p>&nbsp;</p>
+				                <p>功能提示： 仅能够查看收取到的安全文件，如需制作文件请申请成为制作者。<br></br></p>
+			              	</div>
+		                </div>
+ 					</div> 
+					<div th:each="client: ${clientinstallList}">
+						<div class="buyleft-an">
+							<a th:href="@{/getinstallfile.php(id=${client.id})}" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','images/download/buyan_on.jpg',1)">
+								<img th:src="@{/images/download/buyan_off.jpg}" width="149" height="45" id="Image4"></img>
+							</a>
+						</div>
+					 </div> 
+                 </div>          
+			     <div class="buy pull-right">
+			      	 <img th:src="@{images/download/buyright1.jpg}" width="380" height="341"></img>
+		         </div>		        
+		         <div class="clearfix"></div>		        
+		    </div>
+		</div>
+	</div>
+</div>
+
+<script th:src="@{/webjars/jquery/2.0.3/jquery.min.js}"></script>
+<script th:src="@{/js/jquery.validate.js}"></script> 
+<script th:src="@{/js/validate.js}"></script> 
+<script th:src="@{/js/jquery.form.js}"></script> 
+<script th:src="@{/js/jquery.cookie.js}"></script> 
+<script th:src="@{/js/password_strength.js}"></script> 
+<script th:src="@{/js/doregister.js}"></script>
+<script th:src="@{/js/adv.js}"></script>
+<!-- <script type="text/javascript">
+	function MM_swapImgRestore() { //v3.0
+	  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+	}
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+
+	function MM_findObj(n, d) { //v4.01
+	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	  if(!x && d.getElementById) x=d.getElementById(n); return x;
+	}
+
+	function MM_swapImage() { //v3.0
+	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+	}
+</script> -->
+</body>
+</html>

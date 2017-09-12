@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pplt.m100.mapper.UserfileMapper" >
+    <resultMap id="BaseResultMap" type="com.pplt.m100.entity.UserfileEntity">
+        <id column="fileuuid" property="fileuuid" jdbcType="VARCHAR" />
+        <result column="userid" property="userid" jdbcType="BIGINT" />
+        <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+        <result column="filename" property="filename" jdbcType="VARCHAR" />
+        <result column="filepass" property="filepass" jdbcType="VARCHAR" />
+        <result column="acceptlist" property="acceptlist" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        fileuuid, userid, createtime, filename, filepass, acceptlist
+    </sql>
+
+    <insert id="insert" parameterType="com.pplt.m100.entity.UserfileEntity" >
+       INSERT INTO 
+       		${tablename}
+       		(fileuuid,userid,createtime,filename,filepass,acceptlist) 
+       	VALUES
+       		(#{fileuuid}, #{userid}, #{createtime},#{filename},#{filepass},#{acceptlist})
+    </insert>  
+    
+     <select id="findOneByFileuuid" parameterType="com.pplt.m100.entity.UserfileEntity" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM ${tablename}
+	   WHERE 1=1 
+       	<if test="fileuuid != null">and fileuuid = #{fileuuid}</if>
+    </select>
+    
+     <update id="update" parameterType="com.pplt.m100.entity.UserfileEntity" >
+       UPDATE 
+       		${tablename}
+       SET 
+       	<if test="createtime != null">createtime = #{createtime},</if>
+       	<if test="filename != null">filename = #{filename},</if>
+       	<if test="filepass != null">filepass = #{filepass},</if>
+       	<if test="acceptlist != null">acceptlist = #{acceptlist},</if>
+       	userid = #{userid}
+       WHERE 
+       		fileuuid = #{fileuuid}
+    </update>
+    
+     <select id="findUserFile" parameterType="com.pplt.m100.vo.UserFilePage" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM ${tablename}
+	   WHERE 1=1 
+       	<if test="starttime != null and starttime != ''">and createtime &gt; #{starttime} </if>
+       	<if test="endtime != null and endtime != ''">and createtime &lt; #{endtime} </if>
+       	<if test="filename != null and filename != ''">and filename like #{filename} </if>
+       	<if test="recvuser != null and recvuser != ''">and acceptlist like #{recvuser} </if>
+       	<if test="userid != null">and userid = #{userid} </if>
+       	<if test="sort != null">order by #{sort} </if>
+       	<if test="order != null">#{order} </if>
+       	<if test="startNum != null"> limit #{startNum},#{rows}</if>
+    </select>
+    
+     <select id="findUserFileCount" parameterType="com.pplt.m100.vo.UserFilePage" resultType="Integer" >
+        SELECT 
+       	count(*) c
+	   FROM ${tablename}
+	   WHERE 1=1 
+       	<if test="starttime != null and starttime != ''">and createtime &gt; #{starttime} </if>
+       	<if test="endtime != null and endtime != ''">and createtime &lt; #{endtime} </if>
+       	<if test="filename != null and filename != ''">and filename like #{filename} </if>
+       	<if test="recvuser != null and recvuser != ''">and acceptlist like #{recvuser} </if>
+       	<if test="userid != null">and userid = #{userid} </if>
+    </select>
+    
+    <delete id="delFiles" parameterType="java.util.HashMap">
+    	DELETE FROM ${tablename}
+    	WHERE fileuuid = #{fileuuid}   		 
+    </delete>
+
+</mapper>

@@ -1,0 +1,95 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"></meta>
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"></link>
+	<title>注册 - 卓望外发文件安全控制系统平台</title>
+	<link rel="stylesheet" th:href="@{/css/basic.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/page.css}"></link>
+	<script  type="text/javascript">  
+	 function subfunc()
+	 { 		
+	    	$('#registerform').submit();			 
+	}
+	</script>
+</head>
+<body>
+
+<div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1"> 
+	<img style="position:fixed;" th:src="@{/images/download/bg.jpg}" height="100%" width="100%"></img> 
+</div>
+
+<div class="page">
+  <div class="header"></div>
+
+  <div class="content bgc">
+  		<div class="register">
+		    <div class="xinlogo">
+		    	<img th:src="@{/images/download/logo.png}" width="378" height="63"></img>
+	    	</div>
+	    	
+          	<div class="layout register-box form-register">
+		        <form id="registerform" class="form-horizontal pull-left" name="registerform" method="post" 
+		        	action="#" th:action="@{/registerSubmit.do}" autocomplete="off" novalidate="novalidate" target="_top">
+		        	
+		            <div class="control-group">
+		                <label class="control-label">*邮箱地址：</label>
+		                <div class="controls">
+		                    <input type="text" name="username" id="username" class="form-control input" placeholder="请输入邮件地址"></input>
+		                </div>
+		            </div>
+
+	              	<div class="control-group">
+		                <label class="control-label">*昵　　称：</label>
+		                <div class="controls">
+		                    <input type="text" name="nickname" id="nickname" class="form-control input" placeholder="请输入昵称"></input>		                  	 
+		                </div>
+		            </div>
+		            
+		            <div class="control-group">
+		                <label class="control-label">*密　　码：</label>
+		                <div class="controls">
+		                    <input type="password" id="password" name="password" class="J_password_first form-control input" placeholder="请输入密码"></input>
+		                </div>
+		            </div>		            
+		            
+		            <div class="control-group">
+		                <label class="control-label">*确认密码：</label>
+		                <div class="controls">
+		                    <input type="password" name="confirmPassword" id="confirmPassword" class="form-control input" placeholder="请再次输入密码"></input>
+		                    <label for="remoteValidateCode" class="error" id="error_msg" style="display:none;"></label>
+		                </div>
+		            </div>		
+		                        
+		            <div class="controls register-sub">
+		                <p>
+		                	<input name="checkbox" type="checkbox" id="checkbox" checked="checked"></input>
+		                	我已仔细阅读并接受<a th:href="@{/html/registration-policy.html}" target="_blank" style="padding:0 5px;">卓望服务协议</a>
+	                	</p>
+		                 <p>&nbsp;</p>
+		                <button name="user_info_submit" type="submit" id="user_info_submit" class="btn btn-primary btn-large">同意条款并注册</button>
+		                 <p>&nbsp;</p>
+		                <p style="color: #a2a2a2;">如遇到任何问题请联系400-882-8682</p>
+		            </div>
+		        </form>
+
+		        <div class="ad pull-right">
+		        	<img th:src="@{/images/download/logoright.jpg}"></img>
+		        </div>
+		        
+		        <div class="clearfix"></div>
+		        
+		    </div>
+		</div>
+	</div>
+</div>
+
+<script th:src="@{/webjars/jquery/2.0.3/jquery.min.js}"></script>
+<script th:src="@{/js/jquery.validate.js}"></script> 
+<script th:src="@{/js/validate.js}"></script> 
+<script th:src="@{/js/jquery.form.js}"></script> 
+<script th:src="@{/js/jquery.cookie.js}"></script> 
+<script th:src="@{/js/password_strength.js}"></script> 
+<script th:src="@{/js/doregister.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pplt.m100.mapper.UserpayMapper" >
+    <resultMap id="BaseResultMap" type="com.pplt.m100.entity.UserpayEntity" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="ordid" property="ordid" jdbcType="VARCHAR" />
+        <result column="statue" property="statue" jdbcType="INTEGER" />
+        <result column="paymoney" property="paymoney" jdbcType="INTEGER" />
+        <result column="userid" property="userid" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id, ordid, statue, paymoney, userid
+    </sql>
+
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM userpay
+	   WHERE id = #{id}
+    </select>
+    
+    <select id="getOneByOrdid" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM userpay
+	   WHERE ordid = #{ordid}
+    </select>
+
+    <insert id="insert" parameterType="com.pplt.m100.entity.UserpayEntity" >
+       INSERT INTO 
+       		userpay
+       		(ordid,statue,paymoney,userid) 
+       	VALUES
+       		(#{ordid}, #{statue}, #{paymoney},#{userid})
+    </insert>
+    
+    <update id="update" parameterType="com.pplt.m100.entity.UserpayEntity" >
+       UPDATE 
+       		userpay
+       SET 
+       	statue = #{statue}
+       WHERE 
+       		id =#{id}
+    </update>
+
+</mapper>

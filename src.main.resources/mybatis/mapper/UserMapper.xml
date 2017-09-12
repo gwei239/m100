@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pplt.m100.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.pplt.m100.entity.UserEntity">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="mail" property="mail" jdbcType="VARCHAR" />
+        <result column="lastloginip" property="lastloginip" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+        <result column="lastaccesstime" property="lastaccesstime" jdbcType="TIMESTAMP" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="enable" property="enable" jdbcType="INTEGER" />
+        <result column="truename" property="truename" jdbcType="VARCHAR" />
+        <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" jdbcType="INTEGER" />
+        <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+        <result column="codec" property="codec" jdbcType="VARCHAR" />
+        <result column="right" property="right" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id,name,mail,password,endtime,type,lastloginip,lastaccesstime,enable,truename,telephone,sex,birthday,codec,right
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+       SELECT 
+       *
+	   FROM user
+    </select>
+
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT 
+       *
+	   FROM user
+	   WHERE id = #{id}
+    </select>
+
+    <select id="getOneByMail" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT 
+       *
+	   FROM user
+	   WHERE mail = #{mail}
+    </select>
+
+    <insert id="insert" parameterType="com.pplt.m100.entity.UserEntity" >
+       INSERT INTO 
+       		user
+       		(name,mail,password,enable) 
+       	VALUES
+       		(#{name}, #{mail}, #{password},#{enable})
+    </insert>
+    
+    <update id="update" parameterType="com.pplt.m100.entity.UserEntity" >
+       UPDATE 
+       		user
+       SET 
+       	<if test="mail != null">mail = #{mail},</if>
+       	<if test="password != null">password = #{password},</if>
+       	<if test="type != null">type = #{type},</if>
+       	<if test="endtime != null">endtime = #{endtime},</if>
+       	<if test="lastaccesstime != null">lastaccesstime = #{lastaccesstime},</if>
+       	<if test="codec != null">codec = #{codec},</if>
+       	name = #{name}
+       WHERE 
+       		id = #{id}
+    </update>
+    
+    <delete id="delete" parameterType="java.lang.Long" >
+       DELETE FROM
+       		 user
+       WHERE 
+       		 id =#{id}
+    </delete>
+    
+    <select id="getByUser" parameterType="com.pplt.m100.entity.UserEntity" resultMap="BaseResultMap" >
+        SELECT 
+       *
+	   FROM user
+	   WHERE 1=1 
+       	<if test="mail != null">and mail = #{mail}</if>
+       	<if test="name != null">and name = #{name}</if>
+    </select>
+
+</mapper>

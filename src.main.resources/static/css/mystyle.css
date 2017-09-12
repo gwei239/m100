@@ -1,0 +1,123 @@
+﻿body,table,tr,td,th{ line-height:25px;}
+H1 {
+	FONT-STYLE: normal; FONT-FAMILY: "宋体", Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 1.6em; FONT-WEIGHT: bold
+}
+H2 {
+	FONT-FAMILY: "宋体", Verdana, Arial, Helvetica, sans-serif; COLOR: #990066; FONT-SIZE: 1.15em; FONT-WEIGHT: bold
+}
+H3 {
+	FONT-FAMILY: "宋体", Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 1.3em; FONT-WEIGHT: bold
+}
+TD {
+	FONT-STYLE: normal; FONT-FAMILY: "宋体", Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+H4 {
+	FONT-STYLE: normal; FONT-FAMILY: "宋体", Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 0.9em
+}
+H5 {
+	FONT-STYLE: normal; FONT-FAMILY: "宋体", Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 0.77em
+}
+PRE {
+	FONT-FAMILY: "宋体", monospace
+}
+BODY {
+	BACKGROUND-COLOR: #ffffff; FONT-FAMILY: "宋体", "宋体",verdana,arial,helvetica,sans-serif,tahoma; COLOR: #330033; FONT-SIZE: 12px
+}
+A:visited {
+	COLOR: #006666
+}
+A:link {
+	COLOR: #006666
+}
+.input_alert {
+	BACKGROUND: #ffffa0; COLOR: #e60000
+}
+.odd2 {
+	BACKGROUND-COLOR: #fff
+}
+.even2 {
+	BACKGROUND-COLOR: #eee
+}
+.left {
+	TEXT-ALIGN: left;  PADDING: 2px 0px 2px 2px;
+}
+.left_tal {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f6f9; PADDING: 5px 0px 5px 10px;
+}
+.left2 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f6f9; PADDING: 5px 0px 5px 10px;
+}
+.left_tal2 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f6f9; PADDING: 5px 0px 5px 10px;
+}
+.right {
+	 padding-left:2px; text-align:left
+}
+.right_nop {
+	BACKGROUND-COLOR: #f2f6f9; padding-left:2px;
+}
+.left_tal {
+	TEXT-ALIGN: left; 
+}
+.left_tal2 {
+	TEXT-ALIGN: left;
+}
+.right_nop {
+	PADDING-LEFT: 0px;  padding-left:2px;
+}
+.padding_r_small {
+	PADDING-RIGHT: 3px
+}
+.ta_wrapper {
+	PADDING-BOTTOM: 3px; BACKGROUND-COLOR: #d5e5e5; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 3px
+}
+.warning {
+     color:#666666
+ }
+
+.nowarning {
+ 	color:green
+ }
+.datetable{BORDER-RIGHT: #7f7f7f 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: 
+#7f7f7f 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; 
+BORDER-LEFT: #7f7f7f 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #7f7f7f 
+1px solid; FONT-FAMILY: "宋体", arial; BORDER-COLLAPSE: collapse; 
+border-spacing: 0
+}
+.tabtitle {background:url(../images/titlebg.gif) repeat-x; height:24px; border-bottom: #7f7f7f 1px solid; font-size:12px; color:#000000;
+}
+.tabright{border-right: #cbcbcb 1px solid;  text-align:center; font-size:12px; color:#000000;border-bottom: #7f7f7f 1px solid;
+}
+.descri_tabright{text-align:center; border-right: #cbcbcb 1px solid; font-size:12px; color:#000000;BACKGROUND-COLOR: #edf5ff; padding-top:5px; padding-bottom:5px;
+}
+input.button4{
+	height:30px;
+	line-height:30px;
+	color:#FFFFFF;
+	padding:0px 20px 0px 20px;
+	cursor: pointer;
+	background:#3d6a91;
+	font-size:14px;
+	text-align:center;
+	font-weight:bold;
+	border:#3d6a91 1px solid;
+}
+
+.wrong_check{
+      width:300px;
+       height:25px;
+       line-height:25px;
+       text-indent:30px;
+       background:url(/images/onError.gif) no-repeat;
+       position:absolute;
+       font-size:12px;
+      }
+.right_check{
+	width:300px;
+       height:25px;
+       line-height:25px;
+       text-indent:30px;
+       background:url(/images/onCorrect.gif) no-repeat;
+       position:absolute;
+       font-size:12px;
+	}

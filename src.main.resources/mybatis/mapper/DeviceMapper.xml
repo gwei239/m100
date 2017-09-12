@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pplt.m100.mapper.DeviceMapper" >
+    <resultMap id="BaseResultMap" type="com.pplt.m100.entity.DeviceEntity">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="deviceinfo" property="deviceinfo" jdbcType="VARCHAR" />
+        <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+        <result column="userid" property="userid" jdbcType="BIGINT" />
+        <result column="type" property="type" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="Base_Column_List" >
+        id, name, deviceinfo, createtime, userid, type
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM device
+    </select>
+
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM device
+	   WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.pplt.m100.entity.DeviceEntity" >
+       INSERT INTO 
+       		device
+       		(name,deviceinfo,createtime,userid,type) 
+       	VALUES
+       		(#{name}, #{deviceinfo}, #{createtime},#{userid},#{type})
+    </insert>  
+
+</mapper>

@@ -1,0 +1,163 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<meta http-equiv="pragma" content="no-cache"></meta>
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"></meta>
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"></meta>
+	<meta http-equiv="expires" content="0"></meta>
+	<title></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/gray/easyui.css}"></link>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/icon.css}"></link>
+<style>
+.page {
+	position: relative;
+	min-height: 100%;
+	/* background-image: url(../images/download/bgbig.jpg); */
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.header {
+	height: 100px;
+}
+.content {
+	padding-bottom: 250px;
+}
+.xinlogo {
+	height: 43px;
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+	padding-right: 35px;
+	padding-bottom: 30px;
+	padding-left: 35px;
+	-webkit-border-radius: 15px 15px 0px 0px;
+	-moz-border-radius: 10px 10px 0px 0px;
+	background-image: url(images/logo_bg.png);
+	text-align: center;
+}
+.register .register-box {
+	padding: 45px 35px;
+	border: solid 1px #e7e7e7;
+	background: #fff;
+}
+.layout {
+	position: relative;
+}
+.layout {
+	margin: 0 auto;
+	width: 960px;
+	-webkit-border-radius: 0px 0px 15px 15px;
+	-moz-border-radius: 0px 0px 15px 15px;
+}
+.zcleft-bt {
+	font-size: 16px;
+	color: #B2488A;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	font-family: "微软雅黑"
+}
+.register .register-box .control-group {
+	margin: 0;
+	padding-bottom: 0px;
+	clear: both;
+	overflow: hidden
+}
+.advanced {
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
+}
+.datagrid-toolbar {
+	height: 60px;
+	padding: 1px 2px;
+	border-bottom: 1px solid #ccc;
+}
+#fm {
+	margin: 0;
+	padding: 10px 30px;
+}
+.ftitle {
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.fitem {
+	margin-bottom: 5px;
+}
+.fitem label {
+	display: inline-block;
+	width: 80px;
+}
+
+.panel datagrid {
+	width: 100%
+}
+#datagrid {
+	width: 100%
+}
+</style>
+</head>
+
+<body style="padding:0px; margin:0px;" onLoad="iframereinit();">
+	<div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1">
+		<img style="position:fixed;" src="images/bg.jpg" height="100%" width="100%"></img>
+	</div>
+	<div class="page">
+      <div class="header"></div>
+      <div class="content bgc">
+    	<div class="register">
+          <div class="xinlogo"><img src="images/logo3.png" width="378" height="63"></img></div>
+          <div class="layout register-box form-register">
+        	<div class="zhuce-manage">
+              <div class="zcleft-bt">用户外发文件列表</div>
+              <div class="control-group">
+            	<table id="dg" title ='' toolbar="#tb"  singleSelect="false"  fitColumns="true">
+                  <thead>
+                	<tr>
+                      <th field="fileuuid"  checkbox="true" align="center" width="5"></th>
+                      <th field="filename"  align="center" width="50" sortable="true">文件名</th>
+                      <th field="createtime" width="20" align="center" sortable="true" formatter="dateFormatter">建立时间</th>
+                      <!--<th field="removestr" width="20" align="center">移除</th>
+                        <th field="addstr" width="20" align="center">增加</th>--> 
+                    </tr>
+              	 </thead>
+               </table>
+               <div id="tb" style="padding:3px;">                 
+                  <table>
+                	<tr>
+                      <td><a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onClick="OnDelete()">删除</a></td>
+                    </tr>
+                	<tr>
+                      <td><span>起始时间:&nbsp;</span>
+	                    <input type="text" class="easyui-datetimebox"   id="starttime" name="starttime" size="35" maxlength="25" title="起始时间"></input>
+	                    &nbsp; <span>截止时间:&nbsp;</span>
+	                    <input type="text"  class="easyui-datetimebox"  id="endtime" name="endtime" size="25" maxlength="25" title="截止时间"></input>
+	                    &nbsp;	
+	                    &nbsp;<span>文件名:&nbsp;</span>
+	                    <input type="text" name="filename" id="filename" size="10" maxlength="40"></input>
+	                    &nbsp;<span>接收者:&nbsp;</span>
+	                    <input type="text" name="recvuser" id="recvuser" size="10" maxlength="40"></input>
+	                    <A id="btnsearch" class="l-btn l-btn-plain  " href="javascript:onSearch()"  > <SPAN class="l-btn-left"><SPAN style="PADDING-LEFT: 20px" class="l-btn-text icon-search">查询</SPAN></SPAN></A></td>
+                    </tr>
+              	</table>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<script th:src="@{/webjars/jquery/2.0.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.easyui.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/datagrid-detailview.js}"></script>
+<script type="text/javascript" th:src="@{/js/locale/easyui-lang-zh_CN.js}"></script>
+<script type="text/javascript" th:src="@{/js/filemanager.js}"></script>
+
+</body>
+</html>
